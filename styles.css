@@ -1,0 +1,1895 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #4B5563; /* Tailwind gray-600 */
+      color: white;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    header {
+      display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1120px;      /* Đổi 1100px thành 1120px để đồng bộ với các page */
+  margin: 32px auto 0 auto;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;     /* Thêm nếu chưa có */
+  left: 0;
+}
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 111px;
+      height:50px;
+      object-fit: contain;
+    }
+    @media (max-width: 640px) {
+   header {
+    padding: 12px 16px;
+    margin-top: 16px;
+    max-width: 100%;      /* Đảm bảo không bị tràn trên mobile */
+  }
+}
+  .logo {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .logo img {
+    width: 140px;
+    height: 42px;
+  }
+
+    
+    nav {
+      display: flex;
+      gap: 37px;
+      margin-left: auto;
+      margin-right: 50px;
+    }
+    nav a {
+      font-weight: 600; /* Chữ đậm hơn */
+      position: relative;
+      padding-bottom: 6px; /* Tăng khoảng cách giữa chữ và gạch chân */
+      font-size: 13px;
+    }
+    nav a:hover {
+      text-decoration: none; /* Bỏ gạch chân mặc định */
+    }
+    nav a::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 0;
+      background: #F5AB48; /* Màu cam giống nút */
+      border-radius: 2px;
+      transition: width 0.3s, left 0.3s;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    nav a:hover::after {
+      width: 50%; /* Khi hover sẽ hiện gạch chân */
+      
+    }
+    nav a.active::after {
+  width: 50%; /* hoặc giá trị mong muốn */
+}
+    
+    .contact-btn {
+      height: 37px;
+      width: 120px;
+      border-radius: 3px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: #F5AB48;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact-btn:hover {
+      background-color: #EA580C; /* Tailwind orange-600 */
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 80px 24px 160px 24px;
+    }
+    .page-header {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 100px 24px 190px 24px; /* padding nhỏ hơn */
+  /* min-height: 100vh; */      /* Bỏ nếu không cần full màn hình */
+}
+    .page-header h1 {
+    font-size: 3.0rem; /* hoặc nhỏ hơn */
+    white-space: normal;
+    margin-bottom: 40px;
+    word-break: keep-all;
+    max-width: 100%;
+    line-height: 70px;
+}
+
+    .subtitle {
+      color: #F5AB48; /* Tailwind orange-500 */
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 6px;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 1.1;
+      max-width: 420px;
+      margin: 0;
+    }
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 40px;
+      }
+    }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 45px;
+      }
+    }
+    p.description {
+      color: #D1D5DB; /* Tailwind gray-300 */
+      font-size: 12px;
+      max-width: 800px;
+      margin-top: 16px;
+      line-height: 1.4;
+    }
+    .description {
+  
+  white-space: normal; /* Cho phép xuống dòng */
+  overflow: visible;   /* Hiển thị đầy đủ nội dung */
+}
+    @media (min-width: 640px) {
+      p.description {
+        font-size: 12px;
+      }
+    }
+    .actions {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .discover-btn {
+      height: 44px;
+      width: 129px;
+      border-radius: 3px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      background-color: #F5AB48;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .discover-btn:hover {
+      background-color: #EA580C;
+    }
+    .watch-video {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff; /* Tailwind gray-400 */
+      font-weight: 600;
+      font-size: 11px;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .watch-video:hover {
+      color: white;
+    }
+    .watch-video-icon {
+      width: 40px;
+      height: 40px;
+      margin-left: 20px;
+      border: 2px solid #F5AB48;
+      background-color: #F5AB48;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease;
+    }
+    .watch-video:hover .watch-video-icon {
+      border-color: white;
+    }
+    .watch-video-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      transition: fill 0.3s ease;
+    }
+    .watch-video:hover .watch-video-icon svg {
+      fill: white;
+    }
+    @media (max-width: 1024px) {
+      nav, .contact-btn {
+        display: none;
+      }
+      .page-header {
+        padding-top: 60px;
+        padding-bottom: 120px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      p.description {
+        font-size: 12px;
+        max-width: 100%;
+      }
+      
+      
+    }
+    
+
+    /* trang 2 */
+
+    
+    .page-2 {
+      font-family: 'Inter', sans-serif;
+  background-color: white;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: -50vw;
+  left: 50%;
+  position: relative;
+  max-width: none;
+  padding-top: 100px;
+   }
+   @media (min-width: 768px) {
+     .page-2 {
+    flex-direction: row;
+    gap: 6rem;
+    align-items: flex-start;
+  }
+   }
+   .page-2 .image-container {
+     position: relative;
+     width: 256px;
+     height: 256px;
+   }
+   @media (min-width: 768px) {
+     .page-2 .image-container {
+       width: 256px;
+       height: 256px;
+     }
+   }
+   .page-2 .image-large {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 256px;
+     height: 256px;
+     object-fit: cover;
+   }
+   .page-2 .image-small {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 256px;
+     height: 256px;
+     object-fit: cover;
+     transform: translate(50px, 50px);
+   }
+   .page-2 .circle-icon {
+     position: absolute;
+     top: 50%;
+     left: -48px;
+     transform: translateY(-50%);
+     width: 80px;
+     height: 80px;
+     background-color: #5a9a2a;
+     border: 2px dashed #d9d9d9;
+     border-radius: 50%;
+     box-shadow: inset 0 0 0 40px #f6f6f6;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   .page-2 .circle-icon img {
+     width: 32px;
+     height: 32px;
+   }
+   .page-2 .decor-svg {
+     position: absolute;
+     top: 48px;
+     right: -64px;
+     width: 80px;
+     height: 80px;
+     color: #f4d2a3;
+   }
+   .page-2 .text-content {
+     max-width: 420px;
+   }
+   .page-2 .subtitle {
+     color: #f4a951;
+     font-size: 1rem;
+     font-weight: 900;
+     letter-spacing: 0.3em;
+     margin-bottom: 0.5rem;
+     display: flex;
+     align-items: center;
+     gap: 0.25rem;
+   }
+   .page-2 .subtitle i {
+     font-style: normal;
+   }
+   .page-2 .title {
+     font-weight: 900;
+  font-size: 1.7rem;      /* Giảm font-size nếu vẫn bị rớt dòng */
+  line-height: 1.3;
+  color: #121212;
+  margin-bottom: 1rem;
+  max-width: 900px;       /* Tăng max-width để chữ trải dài hơn */
+  white-space: normal;    /* Cho phép xuống dòng tự nhiên */
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+  display: block;      
+   }
+   @media (min-width: 768px) {
+  .page-2 .title {
+    font-size: 2.6rem;    /* Tăng font-size trên màn hình lớn */
+    max-width: 1200px;    /       /* Dãn hơn trên màn hình lớn */
+  }
+}
+   .page-2 .description {
+     font-size: 0.75rem;
+     color: #4a4a4a;
+     margin-bottom: 1.5rem;
+     line-height: 1.5;
+   }
+   .page-2 ul {
+     list-style: none;
+     padding: 0;
+     margin: 0 0 2rem 0;
+     color: #121212;
+     font-size: 0.75rem;
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+   }
+   .page-2 ul li {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+   .page-2 ul li .check-icon {
+     color: #5a9a2a;
+     font-size: 10px;
+     display: inline-block;
+     width: 10px;
+     height: 10px;
+   }
+   .page-2 button {
+    width: 146px;
+    height: 49px;
+     background-color: #54a029;
+     color: white;
+     font-size: 0.75rem;
+     font-weight: 600;
+     padding: 0.5rem 1.5rem;
+     border: none;
+     border-radius: 0.25rem;
+     cursor: pointer;
+   }
+
+/* trang 3 */
+
+.page-3 {
+      background-color: white;
+      width: 100vw;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      text-align: center;
+      padding-top: 30px;}
+    .page-3 .mission {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      color: #f59e0b;
+      font-weight: 900;
+      font-size:5px;
+      letter-spacing: 0.3em;
+    }
+    .page-3 .mission i {
+      font-size: 15px;
+    }
+
+    .page-3 .mission span {
+      font-size: 20px;
+    }
+    .page-3 h2 {
+      font-size: 3rem;      /* Kích thước chữ lớn như header */
+      font-weight: 800;     /* Đậm */
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: #111827;
+      margin-top: 20px;
+    }
+    .page-3 p {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4b5563;
+  font-size: 0.85rem;    /* Tăng font-size cho mobile */
+  line-height: 1.5rem;   /* Tăng line-height cho dễ đọc */
+  margin-bottom: 3.5rem;
+}
+    .page-3 .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem 3rem;
+    }
+    .page-3 .item {
+      width: 9rem;
+      height: 9rem;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      cursor: default;
+    }
+    .page-3 .item img {
+      margin-bottom: 0.75rem;
+      width: 3rem;
+      height: 3rem;
+    }
+    .page-3 .item.work-together {
+      background-color: #55982b;
+      color: white;
+      box-shadow: 0 10px 15px rgba(85, 152, 43, 0.3);
+    }
+    .page-3 .item.work-together::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -1.5rem;
+      width: 1px;
+      background-color: rgba(255 255 255 / 0.2);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .page-3 .item.non-gmo {
+      background-color: white;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      color: black;
+    }
+    .page-3 .item.non-gmo::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -1.5rem;
+      width: 1px;
+      background-color: #d1d5db;
+    }
+    .page-3 .item.tree-plant,
+    .page-3 .item.modern-equipment {
+      color: black;
+    }
+    .page-3 .item.tree-plant::after,
+    .page-3 .item.modern-equipment::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: -1.5rem;
+      width: 1px;
+      background-color: #d1d5db;
+    }
+    .page-3 .item.seral-crops {
+      color: black;
+    }
+    @media (min-width: 640px) {
+      .page-3 h2 {
+        font-size: 3rem;
+        line-height: 2.5rem;
+      }
+    }
+    @media (min-width: 640px) {
+      .page-3 p {
+        font-size: 0.7rem;     /* Tăng font-size cho tablet trở lên */
+        line-height: 1.5rem;
+        max-width: 480px;
+  }
+}
+
+    /* trang 4 */
+
+    .page-4 {
+      background-color: #fff;
+      width: 100vw;
+      padding: 64px 24px 128px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 96px;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: none;     /* Xóa max-width */
+      padding-top: 100px; /* Giữ padding top */
+    }
+    .page-4 .text-section {
+      max-width: 448px;
+      flex: 1 1 448px;
+    }
+    .page-4 .text-section .vision-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+    .page-4 .text-section .vision-label i {
+      font-size: 16px;
+      color: #111827;
+    }
+    .page-4 .text-section .vision-label span {
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: #f59e0b;
+      font-weight: 900;
+    }
+    .page-4 .text-section h1 {
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #111827;
+      white-space: nowrap;   /* Không xuống dòng */
+      /* Bỏ overflow và text-overflow */
+    }
+    @media (min-width: 640px) {
+      .page-4 .text-section h1 {
+        font-size: 2.7rem;
+      }
+    }
+    .page-4 .text-section p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+    .page-4 .text-section button {
+      height: 48px;
+      width: 149px;
+      margin-top: 30px;
+      border-radius: 3px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      background-color: #F5AB48;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .page-4 .text-section button:hover {
+      background-color: #d4943f;
+    }
+    .page-4 .text-section button i {
+      font-size: 12px;
+    }
+    .page-4 .video-section {
+      flex: 1 1 448px;
+      max-width: 448px;
+      position: relative;
+      background-color: #bfbfbf;
+      border-radius: 8px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .page-4 .video-section img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      z-index: 0;
+    }
+    .page-4 .video-section .play-button {
+      position: relative;
+      z-index: 10;
+      width: 64px;
+      height: 64px;
+      border: 1.5px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .page-4 .video-section .play-button i {
+      color: white;
+      font-size: 20px;
+      margin-left: 2px;
+    }
+    @media (max-width: 1023px) {
+      .page-4 {
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+        padding-bottom: 64px;
+      }
+      .page-4 .text-section,
+      .page-4 .video-section {
+        max-width: 100%;
+        flex: none;
+        width: 100%;
+      }
+      .page-4 .video-section {
+        aspect-ratio: auto;
+        height: 320px;
+      }
+    }
+
+    /* trang 5 */
+    .page-5 {
+  background-color: white;
+  color: #0f172a;
+  width: 100vw;
+  padding: 4rem 24px 0 24px; /* padding-bottom: 0 */
+  margin-top: -125px;
+}
+    .page-5 .offer-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .page-5 .offer-header .subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f59e0b; /* Tailwind orange-400 */
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+    .page-5 .offer-header .subtitle i {
+      font-size: 0.7rem;
+    }
+    .page-5 .offer-header .subtitle span {
+      font-size: 1rem;
+    }
+    .page-5 .offer-header h2 {
+      font-weight: 900;
+      font-size: 2.7rem;
+      line-height: 2.25rem;
+      margin-bottom: 0.75rem;
+      margin-top: 5px;
+    }
+    @media (min-width: 640px) {
+      .page-5 .offer-header h2 {
+        font-size: 2.7rem;
+        line-height: 2.5rem;
+      }
+      
+    }
+    .page-5 .offer-header p {
+      font-size: 0.75rem;
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+      color: #475569; /* Tailwind slate-700 */
+      line-height: 1.25rem;
+      margin-top: 33px;
+    }
+    .page-5 .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 640px) {
+      .page-5 .offer-grid {
+    grid-template-columns: repeat(2, 468px); /* mỗi cột đúng bằng width của offer-item */
+    justify-content: center;                  /* căn giữa grid */
+    gap: 1.5rem;                              /* hoặc giảm gap nếu muốn sát hơn */
+  }
+    }
+    .page-5 .offer-item {
+  height: 150px;
+  width: 468px;
+  max-width: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.page-5 .offer-item img {
+  margin-top: 0;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+    .page-5 .offer-item h3 {
+      font-weight: 900;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+    }
+    .page-5 .offer-item p {
+      font-size: 0.75rem;
+      color: #475569;
+      max-width: 20rem;
+      line-height: 1.25rem;
+      margin: 0;
+    }
+
+    /* trang 6 */
+.page-6 {
+      max-width: 1120px;
+      margin: 100px auto;
+      padding: 3rem 1.5rem;
+      background-color: white;
+      
+    }
+    .page-6 .grid {
+      display: grid;
+      justify-items: center;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+    .page-6 .grid {
+      grid-template-columns: repeat(3, 328px);
+      justify-content: center; /* căn giữa grid */
+      gap: 12px;
+    }
+    }
+    .page-6 .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 328px;
+    }
+    .page-6 .header .label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+    .page-6 .header .label i {
+      color: #f59e0b;
+      font-size: 1rem;
+    }
+    .page-6 .header .label span {
+      color: #f59e0b;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+    }
+    .page-6 .header h2 {
+      font-weight: 800;
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+    .page-6 .header p {
+      font-size: 0.875rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+      max-width: 328px;
+    }
+    .page-6 .header button {
+      background-color: #54A029;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.375rem;
+      border: none;
+      cursor: pointer;
+      width: 160px;
+      height: 50px;
+      transition: background-color 0.3s ease;
+    }
+    .page-6 .header button:hover {
+      background-color: #3a8a32;
+    }
+    .page-6 .featured {
+      background-color: #8fbb7e;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+      width: 328px;
+      height: 328px;
+      box-sizing: border-box;
+    }
+    .page-6 .featured h3 {
+      margin-top: 180px;
+      font-weight: 600;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .page-6 .featured p {
+      margin-top: -0.1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+    .page-6 .featured .read-more {
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .page-6 .featured .read-more i {
+      font-size: 0.875rem;
+    }
+    .page-6 .product-image {
+      background-color: #c4c4c4;
+      width: 328px;
+      height: 328px;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 600px) {
+  .page-6 .grid {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-6 .product-image {
+    margin-bottom: 5px;
+  }
+  .page-6 .featured,
+  .page-6 .header {
+    margin-bottom: 5px;
+  }
+}
+
+    /* trang 7 */
+
+    .page-7 {
+      max-width: 1120px;
+      margin: -105px auto;
+      padding: 64px 24px;
+      font-family: "Inter", sans-serif;
+      background-color: #fff;
+      color: #1e293b; /* slate-900 */
+    }
+
+    .page-7 .header {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .page-7 .header .subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: #f59e0b; /* orange-400 */
+      user-select: none;
+    }
+
+    .page-7 .header .subtitle i {
+      font-style: normal;
+      font-size: 10px;
+      color: #475569; /* gray-600 */
+    }
+
+    .page-7 .header h3 {
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0;
+      color: #0f172a; /* slate-900 */
+    }
+    
+
+    @media (min-width: 640px) {
+      .page-7 .header h3 {
+        font-size: 2.1rem;
+      }
+    }
+
+    .page-7 .testimonials {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 768px) {
+      .page-7 .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .page-7 .testimonial-card {
+      height: 235px;
+      background: #fff;
+      border: 1px solid #f1f5f9; /* gray-100 */
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+    }
+
+    .page-7 .testimonial-header {
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .page-7 .testimonial-header img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .page-7 .testimonial-header .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-7 .testimonial-header .name {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.2;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .page-7 .testimonial-header .location {
+      font-size: 12px;
+      color: #94a3b8; /* gray-400 */
+      margin: 0;
+    }
+
+    .page-7 .testimonial-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #6b7280; /* gray-500 */
+      margin: 0;
+    }
+
+    .page-7 .pagination {
+      margin-top: 48px;margin-left: auto;margin-bottom: 70px;
+      max-width: 800px;
+      
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .page-7 .pagination .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .page-7 .pagination .dot {
+      width: 24px;
+      height: 2px;
+      border-radius: 9999px;
+      background-color: #86c232; /* green-300 */
+    }
+
+    .page-7 .pagination .dot.active {
+      background-color: #4ade80; /* green-500 */
+    }
+
+    .page-7 .pagination button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #000;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease;
+    }
+
+    .page-7 .pagination button.next {
+      background-color: #f59e0b; /* orange-400 */
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      font-size: 18px;
+    }
+
+    .page-7 .pagination button:focus {
+      outline: 2px solid #f59e0b;
+      outline-offset: 2px;
+    }
+
+    /* trang 8 */
+    .page-8 {
+      font-family: "Inter", sans-serif;
+      background-color: #f9f7f5;
+      width: 100vw;           /* Thêm width 100vw */
+      margin-left: -50vw;     /* Thêm margin negative */
+      left: 50%;             /* Thêm left 50% */
+      position: relative;     /* Thêm position relative */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 0;      /* Bỏ padding left/right */
+      box-sizing: border-box;
+      padding-top: 100px;
+    }
+
+    .container {
+      max-width: 1120px;     /* Giới hạn width của container */
+      width: 100%;
+      margin: 0 auto;        /* Căn giữa container */
+      padding: 0 24px;       /* Thêm padding cho container thay vì page */
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f7f5;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+    }
+
+    .left {
+      position: relative;
+      background-color: #c0c0c0;
+      min-height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    @media (min-width: 768px) {
+      .left {
+        min-height: 400px;
+      }
+    }
+
+    .experience-box {
+      position: absolute;
+      bottom: -40px;
+      background-color: #f2a544;
+      border-radius: 8px;
+      padding: 24px 40px;
+      width: 180px;
+      text-align: center;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    .experience-box .years {
+      font-size: 1.875rem; /* 30px */
+      font-weight: 400;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .experience-box .desc {
+      font-size: 0.75rem; /* 12px */
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .right {
+      background-color: white;
+      padding: 40px 64px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 767px) {
+      .right {
+        padding: 40px 24px;
+      }
+    }
+
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: #f2a544;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: none;
+    }
+
+    .label i {
+      font-size: 14px;
+      color: #010101;
+    }
+
+     .label span {
+      font-size: 14px;
+      letter-spacing: 0.3rem; /* Thêm dòng này để tăng khoảng cách */
+}
+
+    .title {
+      color: #0a1624;
+      font-weight: 800;
+      font-size: 1.875rem; /* 30px */
+      line-height: 1.2;
+      margin: 0 0 16px 0;
+    }
+
+    @media (min-width: 768px) {
+      .title {
+        font-size: 2.25rem; /* 36px */
+      }
+    }
+
+    .description {
+      color: #2a2a2a;
+      font-size: 0.875rem; /* 14px */
+      margin: 0 0 32px 0;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      .description {
+        font-size: 1rem;
+      }
+    }
+
+    .progress-group {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #0a1624;
+      margin-bottom: 4px;
+    }
+
+    .progress-bar-bg {
+      background-color: #f3f3f3;
+      border-radius: 9999px;
+      height: 12px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      background-color: #5a9a2a;
+      height: 12px;
+      border-radius: 9999px 0 0 9999px;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+
+    /* trang 9 */
+    .page-9 {
+    position: relative;
+  background-color: #5a9a3a;
+  width: 100vw;           /* Đảm bảo tràn ngang màn hình */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;     /* Đẩy ra khỏi container cha */
+  margin-right: -50vw;
+  height: 485px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  }
+  .page-9 h1 {
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.1;         /* Giảm line-height */
+  max-width: 900px;         /* Tăng max-width để chữ trải dài hơn */
+  margin: 0 auto;
+  word-break: keep-all;     /* Không tự động xuống dòng giữa từ */
+  white-space: normal;      /* Cho phép xuống dòng tự nhiên */
+}
+  @media (min-width: 640px) {
+    .page-9 h1 {
+    font-size: 2rem;
+    margin-top: 0 auto;
+    margin-bottom: 16px;
+
+    }
+  }
+  @media (min-width: 768px) {
+    .page-9 h1 {
+      font-size: 2.5rem;
+    }
+  }
+  .page-9 p {
+    color: white;
+    font-size: 10px;
+    line-height: 2;
+    margin-top: 8px;
+    max-width: 480px;
+  }
+  @media (min-width: 640px) {
+    .page-9 p {
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 768px) {
+    .page-9 p {
+      font-size: 12px;
+    }
+  }
+  .page-9 button {
+    margin-top: 24px;
+    width: 153px;
+    height: 50px;
+    background-color: #f9a54a;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: -80px;
+    transition: background-color 0.3s ease;
+  }
+  .page-9 button:hover {
+    background-color: #e5943f;
+  }
+  .page-9 img.left-carrot,
+  .page-9 img.right-carrot {
+    position: absolute;
+    width: 200px;
+    height:250px;
+    opacity: 0.9;
+    pointer-events: none;
+    user-select: none;
+  }
+  .page-9 img.left-carrot {
+    top: 25%;
+    left: 16px;
+  }
+  .page-9 img.right-carrot {
+    bottom: 25%;
+    right: 16px;
+  }
+  @media (max-width: 480px) {
+    .page-9 h1 {
+      font-size: 20px;
+    }
+    .page-9 p {
+      max-width: 220px;
+    }
+    
+  }
+  @media (max-width: 640px) {
+  .page-9 img.left-carrot,
+  .page-9 img.right-carrot {
+    width: 100px;
+    height: 100px;
+    margin-top: -80px;
+  }
+}
+  @media (max-width: 480px) {
+  .page-9 img.left-carrot,
+  .page-9 img.right-carrot {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+  /* trang 10 */
+  
+    .page-10 {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .page-10 .blog-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: #f97316;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+    }
+    .page-10 .blog-label svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .page-10 h2 {
+      margin-top: 0.3rem;
+      font-weight: 900;
+      font-size: 2.7rem;
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+    .page-10 p.description {
+      font-size: 0.75rem;
+      color: #4b5563;
+      max-width: 33rem;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+    .page-10 .cards {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .page-10 .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .page-10 .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .page-10 .card {
+      background: white;
+      border-radius: 0.375rem;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      text-align: left;
+    }
+    .page-10 .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .page-10 .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .page-10 .card-date {
+      color: #54A029;
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .page-10 .card-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+      line-height: 1.3;
+    }
+    .page-10 .card-text {
+      font-size: 0.875rem;
+      color: #374151;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+    .page-10 .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      
+      cursor: pointer;
+      border: none;
+      user-select: none;
+      transition: background-color 0.2s ease;
+      width: fit-content;
+    }
+    
+    .page-10 .read-more-btn span.plus {
+      background-color: #54A029;
+      margin-left: 0.5rem;
+      width: 33px;
+      height: 33px;
+      border-radius: 3PX;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: background-color 0.2s ease;
+    }
+    .page-10 .read-more-btn span.plus:hover {
+      background-color: #16a34a;
+    }
+    
+    /* trang 11 */
+
+    .contact {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+      margin-top: -95px;
+    }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .contact-header span {
+      font-size: 1rem;
+      letter-spacing: 0.7rem
+    }
+    .contact-header .subheading {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f6ad55; /* Tailwind orange-400 */
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+    .contact-header .subheading i {
+      font-size: 1rem;
+    }
+    .contact-header h1 {
+      font-weight: 900;
+      font-size: 2.7rem;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .contact-header h1 {
+        font-size: 2.7rem;
+      }
+    }
+    @media (min-width: 768px) {
+      .contact-header h1 {
+        font-size: 2.7rem;
+      }
+    }
+    .contact-content {
+      margin-top: -30px;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      
+    }
+    @media (min-width: 768px) {
+      .contact-content {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start; /* Giữ các item trên cùng một hàng dọc */
+    justify-content: center; /* Thêm dòng này để căn giữa hai bên */
+  }
+    }
+    .contact-left {
+      flex: 1;
+      max-width: 448px;
+    }
+    .contact-left p {
+      font-size: 0.875rem;
+      color: #4a5568; /* Tailwind gray-600 */
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .contact-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem 0;
+      color: #1a202c;
+      font-size: 0.875rem;
+    }
+    .contact-left ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .contact-left ul li i {
+      color: #16a34a; /* Tailwind green-600 */
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+    .contact-left .image-wrapper {
+      position: relative;
+      max-width: 352px;
+    }
+    .contact-left img.main-image {
+      display: block;
+      width: 352px;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 0.375rem;
+    }
+    .contact-right {
+      flex: 1;
+      max-width: 390px;
+      background-color: #F8F6F4; /* Tailwind gray-50 */
+      padding: 2rem;
+      border-radius: 0.375rem;
+    }
+    .contact-right h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1a202c;
+    }
+    .contact-right label {
+      display: block;
+      font-size: 0.75rem;
+      color: #4a5568;
+      margin-bottom: 0.25rem;
+    }
+    .contact-right input,
+    .contact-right textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      color: #4a5568;
+      outline-offset: 2px;
+      resize: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-right input::placeholder,
+    .contact-right textarea::placeholder {
+      color: #a0aec0; /* Tailwind gray-400 */
+    }
+    .contact-right input:focus,
+    .contact-right textarea:focus {
+      border-color: #f6ad55; /* Tailwind orange-400 */
+      box-shadow: 0 0 0 2px #f6ad55;
+    }
+    .contact-right textarea {
+      min-height: 96px;
+      margin-bottom: 1.5rem;
+    }
+    .contact-right button {
+      width: 103px;
+      height: 42px;
+      background-color: #f5ab48; /* Tailwind orange-400 */
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s;
+    }
+    .contact-right button:hover {
+      background-color: #dd6b20; /* Tailwind orange-600 */
+    }
+    @media (min-width: 640px) {
+      .contact-right button {
+        width: auto;
+      }
+    }
+
+    /* Đảm bảo subheading nằm phía trên h1 trong contact-header */
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* căn giữa ngang */
+  justify-content: center; /* căn giữa dọc nếu cần */
+  text-align: center;      /* căn giữa nội dung */
+}
+
+.contact-header .subheading {
+  order: 0;
+  margin-bottom: 8px; /* tạo khoảng cách với h1 */
+}
+
+.contact-header h1 {
+  order: 1;
+}
+
+/* css footer */
+footer {
+     width: 100vw;
+  margin-left: -50vw;
+  left: 50%;
+  position: relative;
+  background-color: #0d1806;
+  color: white;
+      
+    }
+.footer {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 40px 40px 40px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .footer img.bg-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 224px;
+      height: 224px;
+      opacity: 0.1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .footer .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      height: 230px;
+    }
+    .footer .brand {
+      flex: 1 1 25%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 220px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .footer .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
+    }
+    .footer .brand-header img {
+      width: 155px;
+      height:46px;
+    }
+    .footer .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 12px;
+      max-width: 220px;
+    }
+    .footer .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer .contact-icon {
+      background-color: #4a8a1a;
+      padding: 4px 5px 3px 5px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+    }
+    .footer .contact-icon i {
+      font-size: 10px;
+      color: white;
+    }
+    .footer .links {
+      flex: 1 1 20%;
+      font-size: 12px;
+      color: #a3a3a3;
+    }
+    .footer .links h3 {
+      font-weight: 400;
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: white;
+    }
+    .footer .links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer .links ul li {
+      cursor: default;
+    }
+    .footer .recent-post {
+      flex: 1 1 25%;
+      font-size: 12px;
+      color: #a3a3a3;
+    }
+    .footer .recent-post h3 {
+      font-weight: 400;
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: white;
+    }
+    .footer .recent-post ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer .recent-post li {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .footer .recent-post img {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background-color: #b3b3b3;
+    }
+    .footer .recent-post p.date {
+      font-size: 9px;
+      margin: 0 0 4px 0;
+      line-height: 1;
+    }
+    .footer .recent-post p.title {
+      margin: 0;
+      line-height: 1.2;
+      color: #a3a3a3;
+    }
+    .footer hr {
+      border: none;
+      border-top: 1px solid #3f3f3f;
+      margin: 0 0 12px 0;
+    }
+    .footer .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: #6b6b6b;
+    }
+    .footer .social-icons a {
+      color: #6b6b6b;
+      margin-left: 16px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer .social-icons a:first-child {
+      margin-left: 0;
+    }
+    .footer .social-icons a:hover {
+      color: white;
+    }
+
+    @media (max-width: 640px) {
+      .footer {
+        height: auto;
+        padding: 32px 20px 20px 20px;
+      }
+      .footer .top {
+        flex-direction: column;
+        height: auto;
+        gap: 32px;
+      }
+      .footer .brand,
+      .footer .links,
+      .footer .recent-post {
+        max-width: 100%;
+        flex: none;
+      }
+      .footer img.bg-icon {
+        display: none;
+      }
+      .footer .bottom {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 9px;
+      }
+      .footer .social-icons a {
+        margin-left: 12px;
+        font-size: 12px;
+      }
+    }
+
+    .main-title {
+    max-width: 800px; /* Adjust this value as needed */
+    margin: 0 auto;
+}
+
+.title-line {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
